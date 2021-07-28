@@ -7,7 +7,7 @@ function contentchangeform(){
 function contentchangediscord(){
   contact.innerHTML = "<iframe src=\"etc/todiscord.html\" width=\"99%\" height=\"400px\">このブラウザーで表示することはできません。</iframe>"
 }
-function contentchangediscord(){
+function contentchangetwitter(){
   contact.innerHTML = "<iframe src=\"etc/totwitter.html\" width=\"99%\" height=\"400px\">このブラウザーで表示することはできません。</iframe>"
 }
 /*function contentchangediscord(){
