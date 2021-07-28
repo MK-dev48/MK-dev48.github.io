@@ -1,0 +1,373 @@
+@charset "UTF-8";
+html{
+  font-family: sans-serif;
+}
+html * {
+  box-sizing: border-box;
+}
+* {
+  /*outline: 1px solid #00ffd2;*/
+
+}
+body{
+  margin: 0 0 0 0;
+  background-color: #c6ffcd;;
+}
+
+p {
+  line-height: 1.6;
+  margin
+}
+a:link {
+  color: #39ff5f;
+}
+a:visited {
+  color: #39ff5f;
+}
+a:hover {
+  color: #34d7e7;
+}
+a:active {
+  color: #ececec;
+}
+
+/*header*/
+header {
+  background-color: #f6f6f6;
+  color:#f5f7f5;
+  padding-top: 10px;
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.hello a{
+  font-size: 100%;
+  text-decoration: none;
+}
+.hello{
+  text-align: center;
+}
+.list{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align:left;
+  /*background-image: url(../images/bar2.png);*/
+    background-color: #57ffa6;
+
+}
+.list ul{
+  margin-top:0;
+  margin-bottom: 5px;
+  margin-right: 0px;
+}
+.list li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0 40px 0 40px;
+  margin-left: 0px;
+  font-size:20px;
+  border-radius: 10px;
+
+  background-color: #9effcc;
+}
+.list li:hover{
+    background-color: #98e5fb;
+}
+.list a{
+  color: #171717;
+  text-decoration: none;
+}
+.list a:hover{
+  color: #2600ff;
+  text-decoration: none;
+}
+/*whole*/
+.whole{
+}
+/*index.html*/
+/*main*/
+main{
+    max-width: 1020px;
+    margin: 10px auto 0 auto;
+    background-color: #f6f6f6;
+}
+.geemuki{
+  position: relative;
+  text-align: center;
+}
+.Lbuttons1{
+  position: absolute;
+  top: 174px;
+  left: 100px;
+}
+.Lbuttons1 img:active{
+  opacity: 0.5;
+}
+
+.Lbuttons2{
+  position: absolute;
+  top: 174px;
+  left: 175px;
+}
+.Lbuttons2 img:active{
+  opacity: 0.5;
+}
+.Lbuttons3{
+  position: absolute;
+  top: 130px;
+  left: 143px;
+}
+.Lbuttons3 img:active{
+  opacity: 0.5;
+}
+.Lbuttons4{
+  position: absolute;
+  top: 207px;
+  left: 143px;
+}
+.Lbuttons4 img:active{
+  opacity: 0.5;
+}
+.Rbuttons1{
+  position: absolute;
+  top: 118px;
+  left: 867px;
+}
+.Rbuttons1 img:active{
+  opacity: 0.5;
+}
+
+.Rbuttons1 img:active{
+  opacity: 0.5;
+}
+.Rbuttons2{
+  position: absolute;
+  top: 201px;
+  left: 813px;
+}
+.Rbuttons2 img:active{
+  opacity: 0.5;
+}
+.Rbuttons3{
+  position: absolute;
+  top: 350px;
+  left: 810px;
+}
+.Rbuttons3 img:active{
+  opacity: 0.5;
+}
+.Rbuttons4{
+  position: absolute;
+  top: 390px;
+  left: 810px;
+}
+.Rbuttons4 img:active{
+  opacity: 0.5;
+}
+.slideimage
+{
+text-align: center;
+padding: 15px 0 15px 0;
+position: absolute;
+top: 43px;
+left: 250px;
+}
+
+hr {
+  border: none;
+  border-top: 3px double #333;
+}
+/*infomations.html*/
+.introduction{
+  margin: 0 5% 0 5%
+}
+
+/*contents.html*/
+.contents{
+
+padding: 15px 5% 15px 5%;
+
+}
+.contents_oshirase{
+  margin: 0 10% 0 10%;
+text-align: center;
+
+}
+/*contact.html*/
+.contact-title{
+  text-align: center;
+}
+.whole-contact{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.contactlist{
+  text-align: center;
+}
+.contactlist li{
+  display: inline;
+  list-style-type: none;
+  padding-right:20px;
+}
+.contact{
+  text-align: left;
+  padding-bottom: 30px;
+}
+.name{
+  vertical-align: middle;
+}
+
+.contform{
+margin: 0 auto;
+width: 700px;
+padding: 1em;
+border: 1px solid #CCC;
+border-radius: 1em;
+}
+
+.contform ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contform form li + li {
+  margin-top: 1em;
+}
+
+.contform label {
+  /* すべてのラベルを同じサイズにして、きちんと揃える */
+  display: inline-block;
+  width: 120px;
+  text-align: right;
+}
+
+.contform input, textarea {
+  /* すべてのテキストフィールドのフォント設定を一致させる
+     デフォルトで、textarea は等幅フォントが設定されている */
+  font: 1em sans-serif;
+
+  /* すべてのテキストフィールドを同じサイズにする */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* テキストフィールドのボーダーの外見を同一にする */
+  border: 1px solid #999;
+}
+
+.contform input:focus,
+textarea:focus {
+  /* アクティブな要素を少し強調する */
+  border-color: #000;
+}
+
+.contform textarea {
+  /* 複数行のテキストフィールドをラベルにきちんと揃える */
+  vertical-align: top;
+
+  /* テキスト入力に十分な領域を与える */
+  height: 5em;
+}
+
+.button {
+ padding-left: 120px;
+}
+
+button {
+  /* このマージンは、ラベルとテキストフィールドの間のスペースと
+     おおよそ同じスペースを表す */
+  margin-left: .5em;
+}
+/*form&todiscord.html*/
+
+.contcontents{
+  margin: 5% 5% 5% 5%;
+}
+
+
+/*footer*/
+footer{
+  text-align: center;
+  background-color: #d5ffdd;
+  padding: 10px 10px 10px 10px;
+}
+
+/*スマホ向け*/
+@media(max-width: 767px){
+
+*{
+    max-width: inherit;
+}
+.list li{
+  font-size: 20px;
+  padding: 0 5px 0 5px;
+  text-align: center;
+  margin-left: 0px;
+}
+.list ul{
+    margin: 0 20px 0 0px;
+    text-align: center;
+}
+.slideimage img {
+  width: 100%;
+}
+.contcontents{
+  margin-top: 5%;
+}
+
+.contform{
+margin: 0 auto;
+width: 400px;
+}
+
+.contform input, textarea {
+  /* すべてのテキストフィールドのフォント設定を一致させる
+     デフォルトで、textarea は等幅フォントが設定されている */
+  font: 1em sans-serif;
+
+  /* すべてのテキストフィールドを同じサイズにする */
+  width: 200px;
+  box-sizing: border-box;
+
+  /* テキストフィールドのボーダーの外見を同一にする */
+  border: 1px solid #999;
+}
+
+}
+/*幅を変えると対応できないもの*/
+@media(max-width: 1066px){
+
+.ge{
+  display: none;
+  position: inherit;
+}
+.slideimage{
+  position: inherit;
+  text-align: center;
+  top: inherit;
+  left: inherit;
+}
+.Lbuttons1{
+display: none;
+}
+.Lbuttons2{
+display: none;
+}
+.Lbuttons3{
+display: none;
+}
+.Lbuttons4{
+display: none;
+}
+.Rbuttons1{
+display: none;
+}
+.Rbuttons2{
+display: none;
+}
+.Rbuttons3{
+display: none;
+}
+.Rbuttons4{
+display: none;
+}

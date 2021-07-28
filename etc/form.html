@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iTLゲーム制作サークルのWebサイト</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="js/bar.js"></script>
+  <script src="js/cont.js"></script>
+</head>
+
+<body>
+<div class="contcontents">
+
+  <h3>フォームからiTLゲーム制作サークルに連絡する：</h3>
+  <hr>
+<form action="sendto" method="post" class="contform">
+<ul>
+  <li>
+  <label for="onamae">お名前</label>
+  <input type="text" id="namae" name="onamae">
+</li>
+<li>
+<label for="mail">メールアドレス</label>
+<input type="email" id="mail" name="mail">
+</li>
+<br>
+<li>
+<label for="msg">メッセージ</label>
+<textarea id="naiyou" name="naiyou" rows="8" cols="80">(フォーム機能はまだ実装されていません！)</textarea>
+</li>
+<li class="button">
+  <button type="submit">メッセージを送信</button>
+</li>
+</ul>
+
+</div>
+</body>
+</html>
