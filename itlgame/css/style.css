@@ -203,6 +203,7 @@ text-align: center;
 .whole-contact{
     margin-left: 5%;
     margin-right: 5%;
+		padding-bottom: 10%;
 }
 .contactlist{
   text-align: center;
@@ -218,6 +219,9 @@ text-align: center;
 }
 .name{
   vertical-align: middle;
+}
+.center_button{
+	text-align: center;
 }
 
 .contform{
