@@ -11,7 +11,7 @@ html * {
 }
 body{
   margin: 0 0 0 0;
-  background-color: #c6ffcd;;
+  background-color: #EED9C9;
 }
 
 p {
@@ -19,13 +19,13 @@ p {
   margin
 }
 a:link {
-  color: #39ff5f;
+  color: #ED6335;
 }
 a:visited {
-  color: #39ff5f;
+  color: #ED6335;
 }
 a:hover {
-  color: #34d7e7;
+  color: #33ede7;
 }
 a:active {
   color: #ececec;
@@ -52,7 +52,7 @@ header {
     padding-bottom: 10px;
     text-align:left;
   /*background-image: url(../images/bar2.png);*/
-    background-color: #57ffa6;
+    background-color: #ED6335;
 
 }
 .list ul{
@@ -68,7 +68,7 @@ header {
   font-size:20px;
   border-radius: 10px;
 
-  background-color: #9effcc;
+  background-color: #ECAE7E;
 }
 .list li:hover{
     background-color: #98e5fb;
@@ -88,7 +88,8 @@ header {
 /*main*/
 main{
     max-width: 1020px;
-    margin: 10px auto 0 auto;
+    margin: 0 auto 0 auto;
+		padding-top: 10px;
     background-color: #f6f6f6;
 }
 .geemuki{
@@ -300,7 +301,7 @@ padding: 15px 5% 15px 5%;
 /*footer*/
 footer{
   text-align: center;
-  background-color: #d5ffdd;
+  background-color: #E8E1D7;
   padding: 10px 10px 10px 10px;
 }
 
