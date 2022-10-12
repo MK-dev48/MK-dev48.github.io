@@ -19,6 +19,10 @@ a:hover{
 	color: #4b57f4;
 }
 
+p{
+	margin-bottom: 30px;
+}
+
 .whole{
 	padding: 5% 10% 5% 10%;
 }
