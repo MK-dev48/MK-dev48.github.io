@@ -30,6 +30,26 @@ a:hover{
 	padding-bottom: 50px;
 }
 
+img {
+	width: 200px;
+	height: 200px;
+}
+.mini img{
+	width: inherit;
+	height: inherit;
+}
+
+td {
+	text-align: center;
+}
+table th {
+	padding: 10px 10px 10px 10px;
+	background-color: #faf7bb;
+	text-align: center;
+}
+table{
+	text-align: center;
+}
 
 footer{
 	padding-top: 10%;
