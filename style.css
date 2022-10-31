@@ -37,13 +37,13 @@ footer{
 }
 
 
-@media screen and (orientation: portrait) and (max-width: 930px){
+@media screen and (max-width: 930px){
 
 *{
     max-width: inherit;
 }
 .whole{
-	padding: 5% 5% 5% 5%;
+	padding: inherit;
 }
 
 .content{
