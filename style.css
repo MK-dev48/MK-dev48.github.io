@@ -35,3 +35,12 @@ footer{
 	padding-top: 10%;
   text-align: center;
 }
+
+
+@media(max-width: 767px){
+
+*{
+    max-width: inherit;
+}
+
+}
