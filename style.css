@@ -37,7 +37,7 @@ footer{
 }
 
 
-@media(max-width: 767px){
+@media screen and (orientation: portrait) and (max-width: 930px){
 
 *{
     max-width: inherit;
@@ -49,6 +49,6 @@ footer{
 .content{
 	text-align: center;
 	padding-bottom: 5em;
-	font-size: 10vw;
+	font-size: 5vw;
 }
 }
