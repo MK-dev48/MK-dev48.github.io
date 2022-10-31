@@ -42,5 +42,12 @@ footer{
 *{
     max-width: inherit;
 }
+.whole{
+	padding: 5% 5% 5% 5%;
+}
 
+.content{
+	text-align: center;
+	padding-bottom: 5em;
+}
 }
