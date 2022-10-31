@@ -27,7 +27,7 @@ a:hover{
 }
 .content{
 	text-align: center;
-	padding-bottom: 50px;
+	padding-bottom: 3em;
 }
 
 
@@ -48,7 +48,7 @@ footer{
 
 .content{
 	text-align: center;
-	padding-bottom: 5em;
+	padding-bottom: 2em;
 	font-size: 5vw;
 }
 }
