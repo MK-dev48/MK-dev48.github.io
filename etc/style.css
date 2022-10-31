@@ -31,13 +31,14 @@ a:hover{
 	padding-bottom: 3em;
 }
 
-ul {
-	margin: auto;
-	text-align: center;
+.list {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	justify-content: center;
 }
-li {
-	display: inline;
-	text-align: center;
+.item {
+	margin-right: 1em;
 }
 
 footer{
