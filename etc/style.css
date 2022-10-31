@@ -33,6 +33,7 @@ a:hover{
 
 ul {
 	margin: auto;
+	text-align: center;
 }
 li {
 	display: inline;
