@@ -37,8 +37,12 @@ p{
 }
 
 footer{
-	padding-top: 30%;
-  text-align: center;
+	margin-top: 30%;
+  	text-align: center;
+}
+
+.body {
+	margin-bottom: 10em;
 }
 
 
