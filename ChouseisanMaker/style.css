@@ -1,0 +1,63 @@
+@charset "UTF-8";
+html{
+  font-family: sans-serif;
+}
+html * {
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+}
+a:link{
+	color: #2a2c83;
+}
+a:visited{
+	color: #612a83;
+}
+a:hover{
+	color: #4b57f4;
+}
+
+body {
+	text-align: inherit;
+	padding: 5% 10% 5% 10%;
+}
+.header{
+	text-align: center;
+	padding-bottom: 3em;
+}
+.content{
+	
+	padding-bottom: 3em;
+}
+
+.textbox {
+	width: 20em;
+	text-align: top right;
+}
+
+.textbox input{
+	vertical-align: top;
+}
+footer{
+	padding-top: 10%;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 930px){
+
+*{
+    max-width: inherit;
+}
+.whole{
+	padding: inherit;
+}
+
+.content{
+	text-align: center;
+	padding-bottom: 2em;
+	font-size: 5vw;
+}
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>MK-dev48@github - 調整さんメーカー</title>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J5HQV466PG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J5HQV466PG');
+</script>
+<!-- Google tag END-->
+
+<body>
+	<a href="https://mk-dev48.github.io/">  ←top</a><br>
+	<div class="header">
+		<h1>調整さんメーカー</h1> <br>
+		<h4>What is This</h4>
+		工事中
+	</div>
+	<div class="content">
+		<label for="input-date">
+			日付を入力してください｡
+			<input type="date" name="input-date" id="input-date" required pattern="\d{4}-\d{2}-\d{2}"  onchange="dates()">
+		</label>
+		<br>
+		<label for="result">
+			<p>結果がここに表示されます｡コピペして使ってね｡ </p>
+			<textarea name="textbox" id="textbox" cols="20" rows="20"></textarea>
+		</label>
+		
+
+	</div>
+	<script src="script.js"></script>
+</body>
+<footer class="footer">
+	<p>&copy;Copyright MK-dev48. All rights reserved.</p>
+</footer>
+</html>
