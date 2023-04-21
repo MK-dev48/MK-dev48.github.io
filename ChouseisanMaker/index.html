@@ -26,10 +26,17 @@
 	</div>
 	<div class="content">
 		<label for="input-date">
-			日付を入力してください｡
+			★日付を入力してください｡
 			<input type="date" name="input-date" id="input-date" required pattern="\d{4}-\d{2}-\d{2}"  onchange="dates()">
 		</label>
 		<br>
+		<p>入力された日付がここに表示されます｡<p id="showdates"></p></p>
+
+		<label for="input-time">
+			★時刻を入力してください｡
+			<input id="appt-time" type="time" id="input-time" step="600" onchange="times()">
+		</label>
+
 		<label for="result">
 			<p>結果がここに表示されます｡コピペして使ってね｡ </p>
 			<textarea name="textbox" id="textbox" cols="20" rows="20"></textarea>
