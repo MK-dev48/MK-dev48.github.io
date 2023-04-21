@@ -23,6 +23,9 @@ body {
 	text-align: inherit;
 	padding: 5% 10% 5% 10%;
 }
+p {
+	margin-bottom: 1em;
+}
 .header{
 	text-align: center;
 	padding-bottom: 3em;

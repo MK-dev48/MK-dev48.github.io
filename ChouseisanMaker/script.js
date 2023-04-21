@@ -1,15 +1,47 @@
 var datelist = []; //これが日付入力をためる変数
 var timelist = []; //これが時間入力をためる変数
 
+/*++++++++++++++++++++++++++++++++++++++++結果++++++++++++++++++++++++++++++++++++++++++++++++++ */
+function print_results(){
+    sortlists();
+    var box = document.getElementById("textbox");
+    var results_string = "";
+
+    for (let i = 0; i < datelist.length; i++) {
+        for (let l = 0; l < timelist.length; l++) {
+            results_string = results_string + datelist[i] + ' ' + timelist[l] + ' \n';   
+        }
+    }
+
+    box.innerHTML = results_string;
+
+    console.log(results_string);
+}
+
+/*++++++++++++++++++++++++++++++++++++並び替え++++++++++++++++++++++++++++++++++++++++++++++++++ */
+function sortlists(){
+    console.log(datelist.sort());
+    console.log(timelist.sort());
+}
+
+/*++++++++++++++++++++++++++++++++++++++++時間++++++++++++++++++++++++++++++++++++++++++++++++++ */
 function times(){
     /*全部ここでやるタイプ */
     var time_element = document.getElementById("input-time");
     var time = time_element.value;
+    var showtimes = document.getElementById("showtimes");
+    var timeliststring = "";
 
+    timelist.push(time + "~");
 
-    console.log(time);
+    for (let index = 0; index < timelist.length; index++) {
+        let time = timelist[index];
+        timeliststring = timeliststring + " " + time;
+    }
+    showtimes.innerText = timeliststring;    
 }
 
+/* ++++++++++++++++++++++++++++++++++++++++日付+++++++++++++++++++++++++++++++++++++++++++++++++ */
 function dates(){
     /*日付入力欄の文字列を取得するもの そして､加工のための関数をすべて動かし､
     調整さんフォーマットの日付の配列(時刻は無い) を返す*/

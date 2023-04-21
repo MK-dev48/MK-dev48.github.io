@@ -22,27 +22,33 @@
 	<div class="header">
 		<h1>調整さんメーカー</h1> <br>
 		<h4>What is This</h4>
-		工事中
+		<p>調整さんの入力が面倒なひと向けのWebツールです｡</p>  
+		<hr>
 	</div>
 	<div class="content">
 		<label for="input-date">
 			★日付を入力してください｡
 			<input type="date" name="input-date" id="input-date" required pattern="\d{4}-\d{2}-\d{2}"  onchange="dates()">
+			<p><p id="showdates">(入力された日付がここに表示されます｡)</p></p>
 		</label>
 		<br>
-		<p>入力された日付がここに表示されます｡<p id="showdates"></p></p>
+		
 
 		<label for="input-time">
 			★時刻を入力してください｡
-			<input id="appt-time" type="time" id="input-time" step="600" onchange="times()">
+			<input type="time" id="input-time" step="600" value = "00:00" onchange="times()">
+			<p><p id="showtimes">(入力された時間がここに表示されます｡)</p></p>
 		</label>
 
 		<label for="result">
-			<p>結果がここに表示されます｡コピペして使ってね｡ </p>
-			<textarea name="textbox" id="textbox" cols="20" rows="20"></textarea>
+			<p>生成ボタンを押して生成 コピペして使ってね｡ </p>
+			<input type="button" class="generate" value="生成" onclick="print_results()" >
+			<br><br>
+			<textarea name="textbox" wrap="hard" id="textbox" cols="20" rows="20"></textarea>
 		</label>
 		
-
+		
+		<!-- Debug: <input type="button" value="テスト用" onclick="test()" > -->
 	</div>
 	<script src="script.js"></script>
 </body>
