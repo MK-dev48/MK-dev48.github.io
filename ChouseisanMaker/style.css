@@ -51,8 +51,8 @@ footer{
 }
 
 
-@media screen and (max-width: 480px){
-
+@media screen and (max-width: 414px){
+/*スマホ用*/
 *{
     max-width: inherit;
 }
