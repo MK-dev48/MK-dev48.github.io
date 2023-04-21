@@ -17,6 +17,15 @@ function print_results(){
 
     console.log(results_string);
 }
+/*++++++++++++++++++++++++++++++++++++リセット++++++++++++++++++++++++++++++++++++++++++++++++++ */
+function reset(){
+    datelist = [];
+    timelist = [];
+
+    replace_days();
+    replace_times();
+}
+
 
 /*++++++++++++++++++++++++++++++++++++並び替え++++++++++++++++++++++++++++++++++++++++++++++++++ */
 function sortlists(){
@@ -26,13 +35,18 @@ function sortlists(){
 
 /*++++++++++++++++++++++++++++++++++++++++時間++++++++++++++++++++++++++++++++++++++++++++++++++ */
 function times(){
-    /*全部ここでやるタイプ */
+    /*ここでやる */
     var time_element = document.getElementById("input-time");
     var time = time_element.value;
-    var showtimes = document.getElementById("showtimes");
-    var timeliststring = "";
 
     timelist.push(time + "~");
+    
+    replace_times();
+
+}
+function replace_times(){
+    var showtimes = document.getElementById("showtimes");
+    var timeliststring = "";
 
     for (let index = 0; index < timelist.length; index++) {
         let time = timelist[index];
@@ -40,7 +54,6 @@ function times(){
     }
     showtimes.innerText = timeliststring;    
 }
-
 /* ++++++++++++++++++++++++++++++++++++++++日付+++++++++++++++++++++++++++++++++++++++++++++++++ */
 function dates(){
     /*日付入力欄の文字列を取得するもの そして､加工のための関数をすべて動かし､
