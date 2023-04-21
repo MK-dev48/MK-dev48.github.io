@@ -31,7 +31,7 @@ p {
 	padding-bottom: 10px;
 }
 .content{
-	margin: 3em 0 0 3em;
+	margin: 3em 0 5em 0;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
@@ -51,7 +51,7 @@ footer{
 }
 
 
-@media screen and (max-width: 930px){
+@media screen and (max-width: 480px){
 
 *{
     max-width: inherit;

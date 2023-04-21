@@ -18,14 +18,20 @@ function print_results(){
     console.log(results_string);
 }
 /*++++++++++++++++++++++++++++++++++++リセット++++++++++++++++++++++++++++++++++++++++++++++++++ */
-function reset(){
-    datelist = [];
+function timesreset(){
     timelist = [];
-
-    replace_days();
     replace_times();
 }
 
+function daysreset(){
+    datelist = [];
+    replace_days();
+}
+
+function resultreset(){
+    var box = document.getElementById("textbox");
+    box.innerHTML = "";
+}
 
 /*++++++++++++++++++++++++++++++++++++並び替え++++++++++++++++++++++++++++++++++++++++++++++++++ */
 function sortlists(){

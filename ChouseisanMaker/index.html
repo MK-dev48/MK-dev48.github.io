@@ -20,7 +20,7 @@
 <body>
 	<a href="https://mk-dev48.github.io/">  ←top</a><br>
 	<div class="header">
-		<h1>調整さんメーカー</h1>
+		<h1>調整さんメーカー</h1><br>
 		<h4>What is This</h4>
 		<p>調整さんの入力が面倒なひと向けのWebツールです｡</p>  
 	</div>
@@ -28,7 +28,9 @@
 	<div class="content">
 		<div class="left">
 			<label for="reset">★リセットボタンを押すと記録が消えます｡ <br>
-				<input type="button" class="reset" value="リセット" onclick="reset()">
+				<input type="button" class="reset" value="日付リセット" onclick="daysreset()">
+				<input type="button" class="reset" value="時刻リセット" onclick="timesreset()">
+				<input type="button" class="reset" value="出力リセット" onclick="resultreset()">
 				<br><br>
 			</label><br>
 			<label for="input-date">★日付を入力してください｡
@@ -54,7 +56,7 @@
 		
 		
 	<!-- Debug: <input type="button" value="テスト用" onclick="test()" > -->
-	
+	<p>iPhoneユーザーへ：日付と時刻の入力欄はタップすると初回の場合勝手に入力されるのでリセットボタンをうまく使ってどうにかしてください｡</p>
 	<script src="script.js"></script>
 </body>
 <footer class="footer">
