@@ -1,7 +1,7 @@
 @charset "UTF-8";
 html{
   font-family: sans-serif;
-  background-color: #ebffec;
+  background-color: #efffef;
 }
 html * {
 	box-sizing: border-box;
@@ -55,6 +55,7 @@ input{
 	border-radius: 0.5em;
 	min-width:8em;
 	min-height: 2em;
+	color: black;
 }
 
 footer{
