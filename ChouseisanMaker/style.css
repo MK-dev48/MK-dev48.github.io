@@ -38,7 +38,7 @@ p {
 	margin: 3em 0 5em 0;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	font-size: 1.5vw;
+	font-size: large;
 }
 
 textarea{
@@ -47,19 +47,13 @@ textarea{
 	padding: 0.5em;
 }
 
-input[type="button"]{
-	width: 100px;
-	min-height: 2em;
-	background-color: #afe0b2;
-	border: 2px solid #11521d ;
-	border-radius: 0.5em;
-}
+
 
 input{
 	background-color: #afe0b2;
 	border: 2px solid #11521d ;
 	border-radius: 0.5em;
-	min-width:7em;
+	min-width:8em;
 	min-height: 2em;
 }
 

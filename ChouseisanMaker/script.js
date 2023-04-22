@@ -1,6 +1,27 @@
 var datelist = []; //これが日付入力をためる変数
 var timelist = []; //これが時間入力をためる変数
 
+/*++++++++++++++++++++++++++++++++++++++コピペ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/*参照 https://noveblo.com/javascript-copy/#:~:text=%E3%80%8Cnavigator.clipboard.writeText(,%E3%81%95%E3%81%9B%E3%82%8B%E3%81%A8%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%80%82 */
+function copy_results(){
+    const box = document.getElementById('textbox');
+    const button = document.getElementById('copy');
+
+    button.addEventListener('click', () => {
+    if (!navigator.clipboard) {
+        alert("このブラウザは対応していません");
+        return;
+    }
+
+    navigator.clipboard.writeText(box.textContent).then(
+        () => {
+        alert('文章をコピーしました。');
+        },
+        () => {
+        alert('コピーに失敗しました。');
+        });
+    });
+}
 /*++++++++++++++++++++++++++++++++++++++++結果++++++++++++++++++++++++++++++++++++++++++++++++++ */
 function print_results(){
     sortlists();
@@ -45,11 +66,12 @@ function times(){
     var time_element = document.getElementById("input-time");
     var time = time_element.value;
 
-    timelist.push(time + "~");
-    
-    replace_times();
-
+    if (!timelist.includes(time+"~") && time) { //被ってたら実行しない
+        timelist.push(time + "~");
+        replace_times();
+    }
 }
+
 function replace_times(){
     var showtimes = document.getElementById("showtimes");
     var timeliststring = "";
@@ -71,12 +93,11 @@ function dates(){
     date = date + days(date);
 
     //console.log(date);
-
-    datelist.push(date.substr(5));
-    
+    if (!datelist.includes(date.substr(5)) && date!="undefined") { //被ってたら実行しない
+        datelist.push(date.substr(5));
+        replace_days()
+    }
     //console.log(datelist);
-
-    replace_days()
 }
 
 function days(datestr){
