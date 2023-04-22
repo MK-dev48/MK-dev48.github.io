@@ -37,21 +37,17 @@ p {
 }
 
 .textbox {
-	width: 20em;
-	text-align: top right;
+	
 }
 
 
-.textbox input{
-	vertical-align: top;
-}
 footer{
 	padding-top: 10%;
   text-align: center;
 }
 
 
-@media screen and (max-width: 414px){
+@media screen and (max-width: 480px){
 /*スマホ用*/
 *{
     max-width: inherit;
@@ -64,6 +60,6 @@ footer{
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
 	font-size: 4vw;
-	display: inherit;
+	display: block ;
 }
 }
