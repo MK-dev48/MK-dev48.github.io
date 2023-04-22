@@ -41,7 +41,7 @@ function sortlists(){
 
 /*++++++++++++++++++++++++++++++++++++++++時間++++++++++++++++++++++++++++++++++++++++++++++++++ */
 function times(){
-    /*ここでやる */
+    /*時刻の入力があったら動くやつ */
     var time_element = document.getElementById("input-time");
     var time = time_element.value;
 
@@ -62,7 +62,7 @@ function replace_times(){
 }
 /* ++++++++++++++++++++++++++++++++++++++++日付+++++++++++++++++++++++++++++++++++++++++++++++++ */
 function dates(){
-    /*日付入力欄の文字列を取得するもの そして､加工のための関数をすべて動かし､
+    /*日付の入力があったら動く 日付入力欄の文字列を取得するもの そして､加工のための関数をすべて動かし､
     調整さんフォーマットの日付の配列(時刻は無い) を返す*/
     var date_element = document.getElementById("input-date");
     var date = date_element.value;
