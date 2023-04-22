@@ -8,14 +8,14 @@ function copy_results(){
     const button = document.getElementById('copy');
 
     button.addEventListener('click', () => {
-    if (!navigator.clipboard) {
-        alert("このブラウザは対応していません");
-        return;
-    }
-
+        if (!navigator.clipboard) {
+            alert("このブラウザは対応していません");
+            return;
+        }
+    
     navigator.clipboard.writeText(box.textContent).then(
         () => {
-        alert('文章をコピーしました。');
+        alert('コピーしました。');
         },
         () => {
         alert('コピーに失敗しました。');
