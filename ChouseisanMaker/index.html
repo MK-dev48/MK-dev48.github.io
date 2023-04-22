@@ -2,7 +2,7 @@
 <html lang="ja" dir="ltr">
 <head>
 	<meta charset="utf-8">
-	<meta name=”viewport” content=”width=device-width,initial-scale=1″>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="style.css">
 	<title>MK-dev48@github - 調整さんメーカー</title>
 </head>
@@ -35,12 +35,12 @@
 				<br><br>
 			</label><br>
 			<label for="input-date">★日付を入力してください｡
-				<input type="date" name="input-date" id="input-date" required pattern="\d{4}-\d{2}-\d{2}"  onchange="dates()">
+				<input type="date" name="input-date" id="input-date" required pattern="\d{4}-\d{2}-\d{2}"  onblur="dates()">
 				<p><p id="showdates">(入力された日付がここに表示されます｡)</p></p>
 			</label>
 			<br>
 			<label for="input-time">★時刻を入力してください｡
-				<input type="time" id="input-time" step="600" value = "00:00" onchange="times()">
+				<input type="time" id="input-time" step="600" value = "00:00" onblur="times()">
 				<p><p id="showtimes">(入力された時間がここに表示されます｡)</p></p>
 			</label>
 		</div>

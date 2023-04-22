@@ -46,7 +46,6 @@ footer{
   text-align: center;
 }
 
-
 @media screen and (max-width: 480px){
 /*スマホ用*/
 *{
@@ -60,6 +59,6 @@ footer{
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
 	font-size: 4vw;
-	display: block ;
+	display: block !important;
 }
 }
