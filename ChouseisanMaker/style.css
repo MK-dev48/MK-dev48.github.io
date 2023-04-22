@@ -31,13 +31,16 @@ p {
 	padding-bottom: 10px;
 }
 .content{
+	text-align: center;
 	margin: 3em 0 5em 0;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-.textbox {
-	
+textarea{
+	border: 2px solid #34ff59 ;
+	border-radius: 0.67em;
+	padding: 0.5em;
 }
 
 
@@ -50,6 +53,9 @@ footer{
 /*スマホ用*/
 *{
     max-width: inherit;
+}
+body {
+	padding: 1em 1px 1em 1px;
 }
 .whole{
 	padding: inherit;
