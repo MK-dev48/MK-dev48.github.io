@@ -35,7 +35,7 @@ p {
 }
 .content{
 	text-align: left;
-	margin: 3em 0 5em 0;
+	margin: 1em 0 1em 0;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	font-size: large;
@@ -58,6 +58,10 @@ input{
 	color: black;
 }
 
+input:hover{
+	background-color: #34ff59;
+}
+
 footer{
 	padding-top: 10%;
   text-align: center;
@@ -76,12 +80,12 @@ body {
 }
 
 .content{
-	padding: 0 0 0 0;
+	padding: 1em 0 1em 0;
 	margin: 0 0 0 0;
 	font-size: 4vw;
 	display: block !important;
 }
 .right{
-	padding-top: 5em;
+	padding-top: 3em;
 }
 }

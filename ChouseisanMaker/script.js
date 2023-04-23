@@ -22,7 +22,7 @@ function copy_results(){
         });
     });
 }
-/*++++++++++++++++++++++++++++++++++++++++結果++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/*++++++++++++++++++++++++++++++++++++++++結果表示++++++++++++++++++++++++++++++++++++++++++++++ */
 function print_results(){
     sortlists();
     var box = document.getElementById("textbox");
@@ -36,7 +36,7 @@ function print_results(){
 
     box.innerHTML = results_string;
 
-    console.log(results_string);
+    //console.log(results_string);
 }
 /*++++++++++++++++++++++++++++++++++++リセット++++++++++++++++++++++++++++++++++++++++++++++++++ */
 function timesreset(){
@@ -74,7 +74,7 @@ function times(){
 
 function replace_times(){
     var showtimes = document.getElementById("showtimes");
-    var timeliststring = "";
+    var timeliststring = ""; //表示用の文字列
 
     for (let index = 0; index < timelist.length; index++) {
         let time = timelist[index];
@@ -120,7 +120,7 @@ function format(datestr){
 
 function replace_days(){
     var showdates = document.getElementById("showdates");
-    var dateliststring = "";
+    var dateliststring = ""; //表示用の文字列
     for (let index = 0; index < datelist.length; index++) {
         let date = datelist[index];
         dateliststring = dateliststring + " " + date;
