@@ -29,6 +29,13 @@ p {
 	margin-bottom: 1em;
 }
 
+h1{
+	padding: 0.5em 1px 0.5em 1px;
+	border-style: solid;
+	border-color: black;
+	background-color: white;
+}
+
 .header{
 	text-align: center;
 	padding-bottom: 10px;
