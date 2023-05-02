@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+*{
+    border: 1px;
+    border-style: solid;
+    border-width: 1px;
+}
+.out {
+    border-color: blue;
+    width: 7em;
+    height: 3em;
+}
+
+.in{
+    display: none;
+    background-color: rgba(0, 0, 0, 50%);
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.out:hover{
+    border-color: red;
+}
+
+.out:hover .in{
+    display: inherit;
+    position:fixed;
+    top: 0;
+    left: 0;
+
+}
