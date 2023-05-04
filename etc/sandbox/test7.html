@@ -1,0 +1,147 @@
+<html>
+<head>
+
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    // 正八面体の頂点
+    var vertices =  [
+  [100, 100, 100], // ここを100倍に
+  [100, -100, -100], // ここを100倍に
+  [-100, 100, -100], // ここを100倍に
+  [-100, -100, 100], // ここを100倍に
+  [0, 61.8, -161.8], // ここを100倍に
+  [0, -61.8, 161.8], // ここを100倍に
+  [61.8, -161.8, 0], // ここを100倍に
+  [-61.8, 161.8, 0], // ここを100倍に
+  [161.8, 0, -61.8], // ここを100倍に
+  [-161.8, 0, 61.8] // ここを100倍に
+];
+    
+    // 正八面体の面
+    var faces = [
+      [0, 5, 6],
+      [0, 6, 8],
+      [0, 8, 4],
+      [0, 4, 7],
+      [0, 7, 5],
+      [9, 5, 7],
+      [9, 7, 4],
+      [9, 4, 8],
+      [9, 8, 6],
+      [9, 6, 5]
+    ];
+    
+    // キャンバスのサイズ
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    // キャンバスの中心
+    var cx = width / 2;
+    var cy = height /2;
+    
+    // キャンバスの要素
+    var canvas = document.getElementById("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    
+    // コンテキストの取得
+    var ctx = canvas.getContext("2d");
+    
+    // 回転角度
+    var angleX = Math.PI / width;
+    var angleY = Math.PI / height;
+    
+    // マウス座標
+    var mouseX = width /2;
+    var mouseY = height /2;
+    
+    // マウスを動かしたときのイベントリスナー
+    window.addEventListener("mousemove", function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    // 描画関数
+    function draw() {
+        // キャンバスをクリア
+        ctx.clearRect(0 ,0 ,width ,height);
+    
+        // 回転角度を更新
+        angleX = (mouseX - cx) * Math.PI / width * -1;
+        angleY = (mouseY - cy) * Math.PI / height * -1;
+    
+        // 頂点を回転させる
+        for (var i =0; i < vertices.length; i++) {
+            rotateX(i);
+            rotateY(i);
+        }
+    
+        // 面を描画する
+        for (var i =0; i < faces.length; i++) {
+            drawFace(i);
+        }
+    
+        // アニメーションを繰り返す
+        requestAnimationFrame(draw);
+    }
+    
+    // X軸回りの回転関数
+    function rotateX(i) {
+        var v = vertices[i];
+        var y = v[1];
+        var z = v[2];
+        v[1] = y * Math.cos(angleX) - z * Math.sin(angleX);
+        v[2] = z * Math.cos(angleX) + y * Math.sin(angleX);
+    }
+    
+    // Y軸回りの回転関数
+    function rotateY(i) {
+        var v = vertices[i];
+        var x = v[0];
+        var z = v[2];
+        v[0] = x * Math.cos(angleY) - z * Math.sin(angleY);
+        v[2] = z * Math.cos(angleY) + x * Math.sin(angleY);
+    }
+    
+    // 面を描画する関数
+    function drawFace(i) {
+        var f = faces[i];
+        var p1 = project(f[0]);
+        var p2 = project(f[1]);
+        var p3 = project(f[2]);
+    
+        // 面の色を設定
+        ctx.fillStyle ="hsl(" + i *36 + ",100%,50%)";
+    
+        // 面を塗りつぶす
+        ctx.beginPath();
+        ctx.moveTo(p1.x ,p1.y);
+        ctx.lineTo(p2.x ,p2.y);
+        ctx.lineTo(p3.x ,p3.y);
+        ctx.closePath();
+        ctx.fill();
+    
+    }
+    
+    // 頂点を投影する関数
+    function project(i) {
+       var v = vertices[i];
+       var x = v[0];
+       var y = v[1];
+       var z = v[2];
+    
+       // 遠近法を適用する
+       var scale = width / (width + z);
+       return {
+           x: cx + x * scale,
+           y: cy + y * scale
+       };
+    }
+    
+    // 描画関数を呼び出す
+    draw();
+    </script>
+</body>
+</html>

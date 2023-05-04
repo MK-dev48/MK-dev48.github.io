@@ -1,0 +1,8 @@
+testsの解説
+
+
+test1~test4 : どうして書いたか覚えてない
+test5: MLHv2の下書き
+test6: BingAIで遊んでみた
+test7: BingAIで遊んでみた (正八面体)
+
