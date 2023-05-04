@@ -1,0 +1,247 @@
+<html>
+<head>
+
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    // 正20面体の頂点座標
+    var vertices = [
+      [0, 0, 1.17557],
+      [1.05146, 0, 0.525731],
+      [0.32492, 1, 0.525731],
+      [-0.850651, 0.618034, 0.525731],
+      [-0.850651, -0.618034, 0.525731],
+      [0.32492, -1, 0.525731],
+      [0.850651, 0.618034, -0.525731],
+      [0.850651, -0.618034, -0.525731],
+      [-0.32492, -1, -0.525731],
+      [-1.05146, 0, -0.525731],
+      [-0.32492, 1, -0.525731],
+      [0, 0, -1.17557],
+    ];
+    
+    // 正20面体の面の頂点インデックス
+    var faces = [
+      [0, 1, 2],
+      [0, 2, 3],
+      [0, 3, 4],
+      [0, 4, 5],
+      [0, 5, 1],
+      [1, 6, 2],
+      [2, 6, 10],
+      [2, 10, 3],
+      [3, 10, 9],
+      [3, 9 ,4],
+      [4 ,9 ,8],
+      [4 ,8 ,5],
+      [5 ,8 ,7],
+      [5 ,7 ,1],
+      [1 ,7 ,6],
+      [6 ,11 ,10],
+      [10 ,11 ,9],
+      [9 ,11 ,8],
+      [8 ,11 ,7],
+      [7 ,11 ,6]
+    ];
+    
+    // canvas要素のサイズ
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    // canvas要素の中心座標
+    var cx = width /2;
+    var cy = height /2;
+    
+    // canvas要素の取得
+    var canvas = document.getElementById("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    
+    // コンテキストの取得
+    var ctx = canvas.getContext("2d");
+    
+    // 正20面体の中心座標
+    var x = cx;
+    var y = cy;
+    var z = -100;
+    
+    // 正20面体の回転角度
+    var angleX = Math.PI /4;
+    var angleY = Math.PI /4;
+    var angleZ = Math.PI /4;
+    
+    // 正20面体の拡大率
+    var scale = Math.min(width,height) /4;
+    
+    // マウス座標
+    var mouseX = cx;
+    var mouseY = cy;
+    
+    // マウスが動いたときに呼ばれる関数
+    function mousemove(e) {
+        // マウス座標を更新
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    }
+    
+    // 描画する関数
+    function draw() {
+        // canvasをクリア
+        ctx.clearRect(0,0,width,height);
+    
+        // マウス座標に応じて回転角度を変化させる
+        angleX += (mouseY - cy) /10000;
+        angleY += (mouseX - cx) /10000;
+    
+        // 回転行列を計算する関数
+        function rotate(x,y,z) {
+            var x1 = x;
+            var y1 = y * Math.cos(angleX) - z * Math.sin(angleX);
+            var z1 = y * Math.sin(angleX) + z * Math.cos(angleX);
+            var x2 = x1 * Math.cos(angleY) + z1 * Math.sin(angleY);
+            var y2 = y1;
+            var z2 = -x1 * Math.sin(angleY) + z1 * Math.cos(angleY);
+            var x3 = x2 * Math.cos(angleZ) - y2 * Math.sin(angleZ);
+            var y3 = x2 * Math.sin(angleZ) + y2 * Math.cos(angleZ);
+            var z3 = z2;
+            return {x: x3,y: y3,z: z3};
+        }
+    
+        // 頂点座標を回転させる
+        var rotatedVertices = [];
+        for (var i=0; i<vertices.length; i++) {
+            var v = vertices[i];
+            var rv = rotate(v[0],v[1],v[2]);
+            rotatedVertices.push(rv);
+        }
+    
+        // 面ごとに描画する関数
+        function drawFace(face,color) {
+            // 面の頂点座標を取得
+            var v1 = rotatedVertices[face[0]];
+            var v2 = rotatedVertices[face[1]];
+            var v3 = rotatedVertices[face[2]];
+    
+            // 面の法線ベクトルを計算する関数
+            function normalVector(v1,v2,v3) {
+                var a1 = v2.x - v1.x;
+                var a2 = v2.y - v1.y;
+                var a3 = v2.z - v1.z;
+                var b1 = v3.x - v1.x;
+                var b2 = v3.y - v1.y;
+                var b3 = v3.z - v1.z;
+                var n1 = a2 * b3 - a3 * b2;
+                var n2 = a3 * b1 - a1 * b3;
+                var n3 = a1 * b2 - a2 * b1;
+                return {x: n1,y: n2,z: n3};
+            }
+    
+            // 面の法線ベクトルを取得
+            var nv = normalVector(v1,v2,v3);
+    
+            // 面が表向きかどうか判定する関数
+            function isFrontFace(nv,v) {
+                var dx = v.x - x;
+                var dy = v.y - y;
+                var dz = v.z - z;
+                return nv.x * dx + nv.y * dy + nv.z * dz <=0;
+            }
+    
+            // 面が表向きなら描画する
+            if (isFrontFace(nv,v1)) {
+                // 頂点座標を拡大して平行投影する関数
+                function project(v) {
+                    return {x: cx + v.x * scale,y: cy + v.y * scale};
+                }
+    
+                // 頂点座標を投影する
+                var p1= project(v1);
+                var p2= project(v2);
+                var p3= project(v3);
+    
+                // 面の色を設定する関数
+                function setColor(color,nv) {
+                    // 光源ベクトル（適当）
+                    var lx=100; 
+                    var ly=100; 
+                    var lz=-100;
+    
+                    // 光源ベクトルと法線ベクトルの内積を計算する関数（正規化は省略）
+                    function dotProduct(lx,lz,lz,nv) {
+                        return lx*nv.x+ly*nv.y+lz*nv.z;
+                    }
+    
+                    // 内積から明るさを決める（適当）
+                    var brightness=dotProduct(lx,lz,lz,nv)/255;
+    
+                    // 色をRGBに分解する関数（16進数から10進数に変換）
+                    function hexToRgb(color) {
+                        return {r: parseInt(color.substr(1,2),16),g: parseInt(color.substr(3,2),16),b: parseInt(color.substr(5),16)};
+                    }
+    
+                    // RGBに分解した色に明るさをかけて再び16進数に変換する関数（小数点以下は切り捨て）
+                    function rgbToHex(rgb,brightness) {
+                        return "#" + ("00" + Math.floor(rgb.r*brightness).toString(16)).slice(-2)
+                        + ("00" + Math.floor(rgb.g*brightness).toString(16)).slice(-2)
+                        + ("00" + Math.floor(rgb.b*brightness).toString(16)).slice(-2);
+                    }
+    
+                    // 色をRGBに分解する
+                    var rgb = hexToRgb(color);
+    
+                    // 色に明るさをかけて16進数に変換する
+                    var hex = rgbToHex(rgb,brightness);
+    
+                    // 色を設定する
+                    ctx.fillStyle = hex;
+                }
+    
+                // 面の色を設定する
+                setColor(color,nv);
+    
+                // 面を描画する
+                ctx.beginPath();
+                ctx.moveTo(p1.x,p1.y);
+                ctx.lineTo(p2.x,p2.y);
+                ctx.lineTo(p3.x,p3.y);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+    
+        // 面の色（適当）
+        var colors = [
+            "#ff0000",
+            "#ff8000",
+            "#ffff00",
+            "#80ff00",
+            "#00ff00",
+            "#00ff80",
+            "#00ffff",
+            "#0080ff",
+            "#0000ff",
+            "#8000ff",
+            "#ff00ff",
+            "#ff0080"
+        ];
+    
+        // 面を描画する（色は12種類を繰り返す）
+        for (var i=0; i<faces.length; i++) {
+            var face = faces[i];
+            var color = colors[i % 12];
+            drawFace(face,color);
+        }
+    
+        // 再描画する
+        requestAnimationFrame(draw);
+    }
+    
+    // マウスイベントの登録
+    canvas.addEventListener("mousemove",mousemove);
+    
+    // 描画開始
+    draw();
+    </script>
+</body>
+</html>
