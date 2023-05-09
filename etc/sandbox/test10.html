@@ -1,0 +1,190 @@
+<html>
+<head>
+  <style>
+    canvas {
+      width: 98vw;
+      height: 98vh;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    // 4次元の立方体を表すクラス
+    class Tesseract {
+    // コンストラクタ
+    constructor(x, y, z, w, size) {
+        // 中心座標
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.w = w;
+        // 一辺の長さ
+        this.size = size;
+        // 頂点の座標
+        this.vertices = [];
+        // 辺の組み合わせ
+        this.edges = [];
+        // 面の組み合わせ
+        this.faces = [];
+        // 頂点の座標を計算
+        for (let i = -1; i <= 1; i += 2) {
+        for (let j = -1; j <= 1; j += 2) {
+            for (let k = -1; k <= 1; k += 2) {
+            for (let l = -1; l <= 1; l += 2) {
+                this.vertices.push([
+                this.x + i * this.size / 2,
+                this.y + j * this.size / 2,
+                this.z + k * this.size / 2,
+                this.w + l * this.size / 2,
+                ]);
+            }
+            }
+        }
+        }
+        // 辺の組み合わせを計算
+        for (let i = 0; i < this.vertices.length; i++) {
+        for (let j = i + 1; j < this.vertices.length; j++) {
+            let diff = 0;
+            for (let k = 0; k < 4; k++) {
+            if (this.vertices[i][k] !== this.vertices[j][k]) diff++;
+            }
+            if (diff === 1) {
+            this.edges.push([i, j]);
+            }
+        }
+        }
+        // 面の組み合わせを計算
+        for (let i = 0; i < this.edges.length; i++) {
+        for (let j = i + 1; j < this.edges.length; j++) {
+            let common = [];
+            for (let k of this.edges[i]) {
+            if (this.edges[j].includes(k)) common.push(k);
+            }
+            if (common.length === 2) {
+            let face = [];
+            for (let k of this.edges[i]) {
+                if (!face.includes(k)) face.push(k);
+            }
+            for (let k of this.edges[j]) {
+                if (!face.includes(k)) face.push(k);
+            }
+            this.faces.push(face);
+            }
+        }
+        }
+    }
+    }
+    // canvas要素を取得
+    let canvas = document.getElementById("canvas");
+    // 2Dコンテキストを取得
+    let ctx = canvas.getContext("2d");
+    // canvasの幅と高さを取得
+    let width = canvas.width;
+    let height = canvas.height;
+    // 中心座標を設定
+    let cx = width / 2;
+    let cy = height / 2;
+    // 投影面と視点の距離を設定
+    let d = 500;
+    // 回転角度を設定
+    let angle = 120;
+    // 回転速度を設定
+    let speed = 0.01;
+    // 4次元の立方体を作成
+    let tesseract = new Tesseract(0, 0, 0, 0, 80);
+    // アニメーション関数
+    function animate() {
+      // canvasをクリア
+      ctx.clearRect(0, 0, width, height);
+      // 回転行列を計算
+      let matrix = [
+        [Math.cos(angle), -Math.sin(angle), 0, 0],
+        [Math.sin(angle), Math.cos(angle), 0, 0],
+        [0, 0, Math.cos(angle), -Math.sin(angle)],
+        [0, 0, Math.sin(angle), Math.cos(angle)],
+      ];
+      // 頂点の座標を回転させる
+      let rotated = [];
+      for (let v of tesseract.vertices) {
+        rotated.push(multiply(matrix, v));
+      }
+      // 頂点の座標を投影する
+      let projected = [];
+      for (let v of rotated) {
+        projected.push(project(v));
+      }
+      // 面の色を設定
+      let colors = [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "cyan",
+        "magenta",
+        "orange",
+        "pink",
+      ];
+      // 面を描画する
+      for (let i = 0; i < tesseract.faces.length; i++) {
+        ctx.fillStyle = colors[i];
+        ctx.beginPath();
+        for (let j of tesseract.faces[i]) {
+          ctx.lineTo(projected[j][0], projected[j][1]);
+        }
+        ctx.closePath();
+        ctx.fill();
+      }
+      // 辺の色と太さを設定
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 3;
+      // 辺を描画する
+      for (let e of tesseract.edges) {
+        ctx.beginPath();
+        ctx.moveTo(projected[e[0]][0], projected[e[0]][1]);
+        ctx.lineTo(projected[e[1]][0], projected[e[1]][1]);
+        ctx.stroke();
+      }
+      // 回転角度を更新する
+      angle += speed;
+      // アニメーションを繰り返す
+      requestAnimationFrame(animate);
+    }
+    // 行列とベクトルの積を計算する関数
+    function multiply(matrix, vector) {
+      let result = [];
+      for (let i = 0; i < matrix.length; i++) {
+        let sum = 0;
+        for (let j = 0; j < matrix[i].length; j++) {
+          sum += matrix[i][j] * vector[j];
+        }
+        result.push(sum);
+      }
+      return result;
+    }
+    // 4次元の座標を3次元に投影する関数
+    function project(vector) {
+      let x = vector[0];
+      let y = vector[1];
+      let z = vector[2];
+      let w = vector[3];
+      // w軸に沿って視点からの距離に応じてスケーリングする
+      let scale = d / (d - w);
+      x *= scale;
+      y *= scale;
+      z *= scale;
+      // z軸に沿って視点からの距離に応じてスケーリングする
+      scale = d / (d - z);
+      x *= scale;
+      y *= scale;
+      // 中心座標に移動する
+      x += cx;
+      y += cy;
+      return [x, y];
+    }
+    // アニメーションを開始する
+    animate();
+  </script>
+</body>
+</html>
