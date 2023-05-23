@@ -1,0 +1,76 @@
+html{
+    padding: 10px;
+}
+
+*{/*
+    border-style: solid;
+    border-color: aqua;*/
+}
+
+.part-1{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.part-2{
+    padding: 1em;
+    
+}
+
+ul {
+    list-style: none;
+}
+
+.cards{
+    display: flex; /*ここで横並びになる*/
+    flex-shrink: 0;
+    overflow-x: scroll;
+}
+
+/* カード本体 */
+.card {
+    width: 200px; /* 任意の横幅を指定 */
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    margin: 5px;
+    margin-right: 15px; /*margin で 余白を作る*/
+  }
+  
+  /* 擬似要素とpadding-topでカードの高さを指定 */
+  .card::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    /*padding-top: 142.5%;*/
+  }
+  /* カード内の画像 */
+  .card img {
+    width: 100%;;
+  }
+  
+  /* カード裏面・表面の共通スタイル */
+  .card .back,
+  .card .front {
+    transition: all 0.6s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+  }
+  
+  /* カード表面のスタイル */
+  .card .front {
+    transform: rotateY(-180deg);
+  }
+  
+  /* ホバー時のカード裏面 */
+  .card:hover .back {
+    transform: rotateY(180deg);
+  }
+  
+  /* ホバー時のカード表面 */
+  .card:hover .front {
+    transform: rotateY(0);
+  }

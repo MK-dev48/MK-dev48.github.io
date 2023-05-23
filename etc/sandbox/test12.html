@@ -1,0 +1,33 @@
+<html>
+<head>
+ <title>4D Cube</title>
+</head>
+<body>
+ <canvas id="canvas" width="600" height="400"></canvas>
+ <script src="https://unpkg.com/three@0.142.0/build/three.min.js"></script>
+ <script>
+ var scene = new THREE.Scene();
+ var camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 1, 1100);
+ var renderer = new THREE.WebGLRenderer();
+ renderer.setSize(innerWidth, innerHeight);
+ document.body.appendChild(renderer.domElement);
+
+ var geometry = new THREE.BoxGeometry(100, 100, 100);
+ var material = new THREE.MeshBasicMaterial({
+  color: 0x0000ff
+ });
+ var cube = new THREE.Mesh(geometry, material);
+ scene.add(cube);
+
+ var animate = function () {
+  requestAnimationFrame(animate);
+  camera.position.x = Math.sin(Date.now() / 1000) * 100;
+  camera.position.y = Math.cos(Date.now() / 1000) * 100;
+  camera.rotation.z = Date.now() / 1000;
+  renderer.render(scene, camera);
+ };
+
+ animate();
+ </script>
+</body>
+</html>

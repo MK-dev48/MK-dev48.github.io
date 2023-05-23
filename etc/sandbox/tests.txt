@@ -8,3 +8,4 @@ test7: BingAIで遊んでみた (正八面体)
 test8: BingAIで遊んでみた
 test9: BingAIで遊んでみた
 test10: BingAIで遊んでみた (4次元の立方体)
+test12: bardで遊んでみた(4次元の立方体)
