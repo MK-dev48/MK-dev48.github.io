@@ -28,7 +28,7 @@ ul {
 
 /* カード本体 */
 .card {
-    width: 200px; /* 任意の横幅を指定 */
+    width: 200px; /* 任意の横幅を指定 (画像の大きさではない)*/
     flex-shrink: 0;
     position: relative;
     cursor: pointer;
