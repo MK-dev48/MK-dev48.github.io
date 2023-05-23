@@ -9,3 +9,4 @@ test8: BingAIで遊んでみた
 test9: BingAIで遊んでみた
 test10: BingAIで遊んでみた (4次元の立方体)
 test12: bardで遊んでみた(4次元の立方体)
+test13: 画像を並べてみた
