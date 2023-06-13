@@ -1,0 +1,43 @@
+table {
+    border-collapse: collapse;
+    /* テーブルのセルの間隔をなくす */
+}
+
+td {
+    width: 40px;
+    /* テーブルのセルの幅を40pxにする */
+    height: 40px;
+    /* テーブルのセルの高さを40pxにする */
+    text-align: center;
+    /* テーブルのセルのテキストを中央寄せにする */
+    border: 1px solid gray;
+    /* テーブルのセルに灰色の枠線をつける */
+    cursor: pointer;
+    /* テーブルのセルのカーソルをポインターにする */
+}
+
+.today {
+    background-color: lightblue;
+    /* 今日の日付のセルの背景色を水色にする */
+}
+
+.heads {
+    display: flex;
+    gap: 2px;
+}
+
+.heads button{
+    height: 2em;
+}
+
+#calendar {
+    width: 400px;
+    height: 200px;
+    /*display: none;*/
+    /* カレンダーを非表示にする */
+    /* カレンダーを中央に合わせる */
+    background-color: white;
+    /* カレンダーの背景色を白にする */
+    /* カレンダーの余白を10pxにする */
+    /* カレンダーに影をつける */
+}

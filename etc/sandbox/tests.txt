@@ -10,3 +10,4 @@ test9: BingAIで遊んでみた
 test10: BingAIで遊んでみた (4次元の立方体)
 test12: bardで遊んでみた(4次元の立方体)
 test13: 画像を並べてみた
+test14: html, css, js 分離のtest6
